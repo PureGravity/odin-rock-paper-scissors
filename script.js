@@ -1,12 +1,19 @@
 function getComputerChoice() {
-    let hand = Math.random().toFixed(2)
-    if (hand > 0.66) {
-        return 'Rock!'
-    } else if (hand > 0.33) {
-        return 'Paper!'
+    let botHand = Math.random().toFixed(2)
+    if (botHand > 0.66) {
+        return 'Rock!';
+    } else if (botHand > 0.33) {
+        return 'Paper!';
     } else {
-        return 'Scissors!'
+        return 'Scissors!';
     }
 }
 
 console.log(getComputerChoice())
+
+function getHumanChoice() {
+    let userHand = prompt('Shoot! [Input Rock, Paper, or Scissors]')
+    return userHand;
+}
+
+console.log(getHumanChoice())
