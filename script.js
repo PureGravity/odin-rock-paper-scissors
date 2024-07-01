@@ -23,7 +23,7 @@ function playRound(humanChoice, computerChoice) {
     if (humanChoice == 'rock') {
         if (computerChoice == 'paper') {
             computerScore++;
-            console.log('You lose.')
+            console.log('You lose.');
         } else if (computerChoice == 'scissors') {
             humanScore++;
             console.log('You win!');
@@ -56,24 +56,24 @@ function playRound(humanChoice, computerChoice) {
 }
 
 // Round function. Change number in while loop to add/remove rounds.
-let round = 0
+let round = 0;
 while (round < 5) {
-    console.log('Round ' + (round + 1) + ':')
-    const computerSelection = getComputerChoice()
-    const humanSelection = getHumanChoice()
-    playRound(humanSelection, computerSelection)
-    round++
+    console.log('Round ' + (round + 1) + ':');
+    const computerSelection = getComputerChoice();
+    const humanSelection = getHumanChoice();
+    playRound(humanSelection, computerSelection);
+    round++;
 }
 
 // Final score/winner display 
-console.log('\nFinal Scores: ')
-console.log('Computer: ' + computerScore)
-console.log('You: ' + humanScore)
+console.log('\nFinal Scores: ');
+console.log('Computer: ' + computerScore);
+console.log('You: ' + humanScore);
 
 if (humanScore > computerScore) {
-    console.log('You win!')
+    console.log('You win!');
 } else if (humanScore < computerScore) {
-    console.log('You lose. Try again?')
-} else [
-    console.log('Tied game!')
-]
+    console.log('You lose. Try again?');
+} else {
+    console.log('Tied game!');
+}
