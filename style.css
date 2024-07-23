@@ -1,0 +1,24 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: darkslategrey;
+    outline: 2px solid;
+    height: 100vh;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    font-size: 20px;
+    width: 100%;
+    max-width: 1000px;
+}
+
+li {
+    background-color: silver;
+    padding: 40px 70px;
+    border-radius: 50px;
+    outline: solid 2px blue;
+}
