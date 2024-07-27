@@ -20,40 +20,56 @@ let humanScore = 0;
 let computerScore = 0;
 
 function playRound(humanChoice, computerChoice) {
-    let result = document.querySelector(".results")
-    if (humanChoice == 'rock') {
-        if (computerChoice == 'paper') {
+    let result = document.querySelector('.results p');
+    let score = document.querySelector('.scoreTrack');
+
+    // Update scores based on choices
+    if (humanChoice === 'rock') {
+        if (computerChoice === 'paper') {
             computerScore++;
-            result.textContent = 'You lose.'
-        } else if (computerChoice == 'scissors') {
+            result.textContent = 'You lose.';
+        } else if (computerChoice === 'scissors') {
             humanScore++;
-            result.textContent = 'You win!'
+            result.textContent = 'You win!';
         } else {
-            result.textContent = 'Tie!'
+            result.textContent = 'Tie!';
+        }
+    } else if (humanChoice === 'paper') {
+        if (computerChoice === 'scissors') {
+            computerScore++;
+            result.textContent = 'You lose.';
+        } else if (computerChoice === 'rock') {
+            humanScore++;
+            result.textContent = 'You win!';
+        } else {
+            result.textContent = 'Tie!';
+        }
+    } else if (humanChoice === 'scissors') {
+        if (computerChoice === 'rock') {
+            computerScore++;
+            result.textContent = 'You lose.';
+        } else if (computerChoice === 'paper') {
+            humanScore++;
+            result.textContent = 'You win!';
+        } else {
+            result.textContent = 'Tie!';
         }
     }
-    else if (humanChoice == 'paper') {
-        if (computerChoice == 'scissors') {
-            computerScore++;
-            result.textContent = 'You lose.'
-        } else if (computerChoice == 'rock') {
-            humanScore++;
-            result.textContent = 'You win!'
-        } else {
-            result.textContent = 'Tie!'
-        }
+
+    // Update the score display
+    let playDescription = `You chose ${humanChoice}<br>The bot chose ${computerChoice}<br><br>Score: ${humanScore} to ${computerScore}`;
+    score.innerHTML = playDescription;
+
+    let leadDesc = document.createElement('p')
+    leadDesc.innerHTML = ''
+    if (humanScore == computerScore){
+        leadDesc.textContent = 'The game is tied.';
+    } else if (humanScore > computerScore){
+        leadDesc.textContent = 'You are in the lead!';
+    } else {
+        leadDesc.textContent = 'The bot is in the lead!';
     }
-    else if (humanChoice == 'scissors') {
-        if (computerChoice == 'rock') {
-            computerScore++;
-            result.textContent = 'You lose.'
-        } else if (computerChoice == 'paper') {
-            humanScore++;
-            result.textContent = 'You win!'
-        } else {
-            result.textContent = 'Tie!'
-        }
-    }
+    score.appendChild(leadDesc)
 }
 
 let rock = document.querySelector('.rock')
@@ -69,25 +85,3 @@ paper.addEventListener('click', function(){
 scissors.addEventListener('click', function(){
     playRound('scissors', getComputerChoice())
 })
-// // Round function. Change number in while loop to add/remove rounds.
-// let round = 0;
-// while (round < 5) {
-//     console.log('Round ' + (round + 1) + ':');
-//     const computerSelection = getComputerChoice();
-//     const humanSelection = getHumanChoice();
-//     playRound(humanSelection, computerSelection);
-//     round++;
-// }
-
-// // Final score/winner display 
-// console.log('\nFinal Scores: ');
-// console.log('Computer: ' + computerScore);
-// console.log('You: ' + humanScore);
-
-// if (humanScore > computerScore) {
-//     console.log('You win!');
-// } else if (humanScore < computerScore) {
-//     console.log('You lose. Try again?');
-// } else {
-//     console.log('Tied game!');
-// }
